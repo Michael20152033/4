@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+
+<body style=" display: flex; justify-content: center; align-items: center; height: 100vh; background: #000;">
+
+    <div class="">
+        <figure style="margin-bottom: 20px;">
+            <audio controls src="audio-1.mp3">
+                <source src="audio-1.mp3" id="oggSource" type="audio/ogg" />
+            </audio>
+        </figure>
+
+
+        <figure>
+            <audio controls src="audio-2.mp3">
+                <source src="audio-2.mp3" id="mp3Source" type="audio/mpeg" />
+            </audio>
+        </figure>
+
+
+
+
+
+
+
+
+
+    </div>
+
+</body>
+
+
+<script>
+    let last = {};
+    document.querySelectorAll('audio').forEach(function(el) {
+        el.addEventListener('playing', function() {
+            if (last.pause && last !== this)
+                last.pause()
+            last = this
+        });
+    })
+</script>
+
+</html>
